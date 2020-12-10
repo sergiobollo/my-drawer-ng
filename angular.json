@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "newProjectRoot": "projects",
+  "cli": {
+    "analytics": "d6e1de34-80b3-4a66-b48a-c55ee0b34ede"
+  },
+  "projects": {
+    "drawer-navigation": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "ns"
+    }
+  },
+  "defaultProject": "drawer-navigation"
+}

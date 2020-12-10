@@ -1,0 +1,12 @@
+<ActionBar>
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label text="Componente1"></Label>
+</ActionBar>
+
+<GridLayout class="page__content">
+    <Button text="Ir a componente2" class="my-button" [nsRouterLink]="['componente2']" pageTransition="slide" clearHistory="true"></Button>
+    <Label class="page__content-placeholder" text="Este es un nuevo componente"></Label>
+</GridLayout>
