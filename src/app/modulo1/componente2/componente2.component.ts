@@ -19,6 +19,4 @@ export class Componente2Component implements OnInit {
     sideDrawer.showDrawer();
 }
 
-
-
 }
