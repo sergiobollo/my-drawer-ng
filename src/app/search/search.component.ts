@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { Application } from "@nativescript/core";
+import { Application, isAndroid, isIOS } from "@nativescript/core";
 import { NoticiasService } from "../domain/noticias.service";
+
 
 @Component({
     selector: "Search",
@@ -19,6 +20,15 @@ export class SearchComponent implements OnInit {
         this.noticias.agregar("hola!");
         this.noticias.agregar("hola2!");
         this.noticias.agregar("hola3!");
+        if (isAndroid) {
+            this.noticias.agregar("Estas navegando en Android");
+        }
+        else if (isIOS) {
+            this.noticias.agregar("Estas navegando en IOS");
+        }
+        else {
+            this.noticias.agregar("Estas navegando en WindowsPhone");
+        }
     }
 
     onDrawerButtonTap(): void {
