@@ -1,68 +1,53 @@
 {
-  "name": "@nativescript/template-drawer-navigation-ng",
-  "main": "main.js",
-  "displayName": "Navigation Drawer",
-  "templateType": "App template",
-  "version": "7.0.5",
+  "nativescript": {
+    "id": "org.nativescript.mydrawerng",
+    "tns-ios": {
+      "version": "6.5.0"
+    },
+    "tns-android": {
+      "version": "6.5.3"
+    }
+  },
   "description": "NativeScript Application",
-  "author": "NativeScript Team <oss@nativescript.org>",
   "license": "SEE LICENSE IN <your-license-filename>",
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "nstudio",
-    "nativescript",
-    "mobile",
-    "angular",
-    "{N}",
-    "tns",
-    "template",
-    "drawer",
-    "navigation",
-    "category-general"
-  ],
   "repository": "<fill-your-repository-here>",
-  "homepage": "https://github.com/NativeScript/nativescript-app-templates",
-  "bugs": {
-    "url": "https://github.com/NativeScript/NativeScript/issues"
-  },
   "scripts": {
     "lint": "tslint \"src/**/*.ts\""
   },
   "dependencies": {
-    "@angular/animations": "~11.0.0",
-    "@angular/common": "~11.0.0",
-    "@angular/compiler": "~11.0.0",
-    "@angular/core": "~11.0.0",
-    "@angular/forms": "~11.0.0",
-    "@angular/platform-browser": "~11.0.0",
-    "@angular/platform-browser-dynamic": "~11.0.0",
-    "@angular/router": "~11.0.0",
-    "@nativescript/angular": "~11.0.0",
-    "@nativescript/core": "~7.0.0",
+    "@angular/animations": "~8.2.0",
+    "@angular/common": "~8.2.0",
+    "@angular/compiler": "~8.2.0",
+    "@angular/core": "~8.2.0",
+    "@angular/forms": "~8.2.0",
+    "@angular/platform-browser": "~8.2.0",
+    "@angular/platform-browser-dynamic": "~8.2.0",
+    "@angular/router": "~8.2.0",
     "@nativescript/theme": "~2.3.0",
-    "nativescript-ui-sidedrawer": "~9.0.0",
+    "@ngrx/effects": "^9.2.0",
+    "@ngrx/store": "^9.2.0",
+    "@nstudio/nativescript-pulltorefresh": "^2.0.0",
+    "nativescript-angular": "~8.21.0",
+    "nativescript-sqlite": "^2.6.3",
+    "nativescript-toast": "^2.0.0",
+    "nativescript-ui-sidedrawer": "~8.0.0",
     "reflect-metadata": "~0.1.12",
-    "rxjs": "^6.6.0",
-    "zone.js": "~0.11.1"
+    "rxjs": "^6.4.0",
+    "tns-core-modules": "~6.5.0",
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular/cli": "^11.0.3",
-    "@angular/compiler-cli": "~11.0.0",
-    "@nativescript/android": "7.0.1",
-    "@nativescript/schematics": "^11.0.0",
-    "@nativescript/webpack": "~3.0.0",
-    "@ngtools/webpack": "~11.0.0",
-    "@schematics/angular": "^11.0.3",
-    "codelyzer": "~6.0.0",
-    "nativescript-dev-typescript": "^0.10.0",
-    "nativescript-dev-webpack": "^1.5.1",
-    "node-sass": "^4.14.1",
-    "tslint": "^6.1.3",
-    "typescript": "~4.0.0"
+    "@angular/compiler-cli": "~8.2.0",
+    "@nativescript/schematics": "^9.0.0",
+    "@ngtools/webpack": "~8.2.0",
+    "@schematics/angular": "^9.1.10",
+    "codelyzer": "^5.0.0",
+    "nativescript-dev-webpack": "~1.5.0",
+    "node-sass": "^4.7.1",
+    "tns-android": "6.5.3",
+    "tslint": "^5.19.0",
+    "typescript": "~3.5.3"
   },
-  "gitHead": "41a7254d3bc134fd3c258761f3c6e1c3d54e6d41",
-  "private": "true",
+  "gitHead": "20a65d338ae8f8911087ab6615b89363f864b07b",
   "readme": "NativeScript Application"
 }

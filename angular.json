@@ -1,8 +1,9 @@
 {
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "cli": {
-    "analytics": "d6e1de34-80b3-4a66-b48a-c55ee0b34ede"
+    "defaultCollection": "@nativescript/schematics"
   },
   "projects": {
     "drawer-navigation": {
