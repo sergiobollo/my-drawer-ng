@@ -5,7 +5,6 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NoticiasService } from "./domain/noticias.service";
-import { Modulo1Module } from "./modulo1/modulo1.module";
 
 
 @NgModule({
