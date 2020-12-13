@@ -3,7 +3,8 @@
   "version": 1,
   "newProjectRoot": "projects",
   "cli": {
-    "defaultCollection": "@nativescript/schematics"
+    "defaultCollection": "@nativescript/schematics",
+    "analytics": "49c66b2f-e670-4ae4-8167-6230af780c9c"
   },
   "projects": {
     "drawer-navigation": {

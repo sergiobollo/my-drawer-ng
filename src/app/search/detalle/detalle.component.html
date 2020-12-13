@@ -1,0 +1,23 @@
+<ActionBar>
+    <Label text="Detalle"></Label>
+</ActionBar>
+
+<StackLayout class="page__content">
+        <Button text="Volver a Search" class="my-button" [nsRouterLink]="['/search']" pageTransition="slide" clearHistory="true"></Button>
+    <Label class="h3" text=" Presione hacia abajo para usar “pull to refresh” y ver detalles"></Label>
+   
+    <PullToRefresh (refresh)="onPull($event)">
+        <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)"
+        style="height:1250px">
+            <ng-template let-x="item">
+                <FlexboxLayout flexDirection="row" class="list-group-item"  (longPress)="onLongPress($event)">
+                    <Image src="res://icon" class="thumb img-circle"></Image>
+                    <Label [text]="x" class="list-group-item-heading"
+                        verticalAlignment="center" style="width: 60%"></Label>
+                    <Button text="Elegir categoría" class="my-button" (tap)="onTap($event)" pageTransition="slide" clearHistory="true" (longPress)="onLongPress($event)"></Button>
+                    </FlexboxLayout>
+            </ng-template>
+        </ListView>  
+    </PullToRefresh>
+
+</StackLayout>

@@ -1,4 +1,4 @@
-<ActionBar>
+<ActionBar class="action-bar">
     <!-- 
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -9,31 +9,25 @@
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
     -->
-    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label text="Search"></Label>
+    <Label class="action-bar-title" text="Search"></Label>
 </ActionBar>
 
-<StackLayout class="page__content" #layout>
-    <Label class="page__content-icon fas" text="&#xf002;"></Label>
-
-    <!--<Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label>-->
-    
+<StackLayout class="page page-content" #layout>
+    <Label class="page-icon fa" text="&#xf002;"></Label>
     <SearchForm (search)="buscarAhora($event)" [inicial]="'hola'"></SearchForm>
-    
     <PullToRefresh (refresh)="onPull($event)">
-        <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event, '/detalle')"
+        <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)"
         style="height:1250px">
             <ng-template let-x="item">
                 <FlexboxLayout flexDirection="row" class="list-group-item">
-                    <Image src="res://icon" class="thumb img-circle"></Image>
+                    <Image src="res://icon" class="thumb img-circle" (longPress)="onLongPress(x)"></Image>
                     <Label [text]="x" class="list-group-item-heading"
                         verticalAlignment="center" style="width: 60%"></Label>
-                          <Button text="Detalle" class="my-button" [nsRouterLink]="['detalle']" pageTransition="slide" clearHistory="true" (longPress)="onLongPress($event)"></Button>
                 </FlexboxLayout>
             </ng-template>
-        </ListView>  
-    </PullToRefresh>
-     
+        </ListView>    
+      </PullToRefresh>
 </StackLayout>
