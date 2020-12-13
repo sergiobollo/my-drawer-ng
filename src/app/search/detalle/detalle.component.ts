@@ -1,8 +1,7 @@
-import { Component, ElementRef, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import { Application, isAndroid, isIOS } from "@nativescript/core";
+import { Application } from "@nativescript/core";
 import { NoticiasService } from "../../domain/noticias.service";
-import { ActivatedRoute, Router } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import * as dialogs from "tns-core-modules/ui/dialogs";
 import { Color, FlexboxLayout, GestureEventData } from "tns-core-modules";
@@ -15,7 +14,7 @@ import { Color, FlexboxLayout, GestureEventData } from "tns-core-modules";
 export class DetalleComponent implements OnInit {
   resultados: Array<string> = ["Detalle1", "Detalle2", "Detalle3",];
 
-  constructor(public noticias: NoticiasService, private routerExtensions: RouterExtensions, private activeRoute: ActivatedRoute) {
+  constructor(public noticias: NoticiasService, private routerExtensions: RouterExtensions) {
       // Use the component constructor to inject providers.
   }
 
