@@ -23,15 +23,15 @@
     <SearchForm (search)="buscarAhora($event)" [inicial]="'hola'"></SearchForm>
     
     <PullToRefresh (refresh)="onPull($event)">
-        <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event, '/detalle')"
+        <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap($event)"
         style="height:1250px">
             <ng-template let-x="item">
                 <FlexboxLayout flexDirection="row" class="list-group-item">
                     <Image src="res://icon" class="thumb img-circle"></Image>
                     <Label [text]="x" class="list-group-item-heading"
                         verticalAlignment="center" style="width: 60%"></Label>
-                          <Button text="Detalle" class="my-button" [nsRouterLink]="['detalle']" pageTransition="slide" clearHistory="true" (longPress)="onLongPress($event)"></Button>
-                </FlexboxLayout>
+                        <Button text="Detalle" (tap)="onTap('detalle')" (longPress)="onLongPress($event)"></Button>
+               </FlexboxLayout>
             </ng-template>
         </ListView>  
     </PullToRefresh>

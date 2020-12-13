@@ -57,7 +57,7 @@ export class DetalleComponent implements OnInit {
     }));
 }
 
-onTap(e) {
+onTap(e: any) {
     console.dir(e);
     this.doLater(() =>
     dialogs.action("Seleccione un categoría", "Cancelar!", ["Categoría1", "Categoría2"])

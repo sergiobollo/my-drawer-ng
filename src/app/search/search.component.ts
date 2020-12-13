@@ -46,8 +46,11 @@ export class SearchComponent implements OnInit {
         sideDrawer.showDrawer();
     }
 
-    onItemTap(x: any, nsRouterLink: string): void {
+    onItemTap(x: any): void {
         console.dir(x);
+    }
+
+    onTap(nsRouterLink: string): void {
         this.routerExtensions.navigate([nsRouterLink], { relativeTo: this.activeRoute,
             transition: {
                 name: "fade"
