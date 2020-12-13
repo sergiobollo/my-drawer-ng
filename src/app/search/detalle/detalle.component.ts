@@ -5,7 +5,7 @@ import { NoticiasService } from "../../domain/noticias.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { RouterExtensions } from "nativescript-angular";
 import * as dialogs from "tns-core-modules/ui/dialogs";
-import { Color, FlexboxLayout, GestureEventData, GridLayout } from "tns-core-modules";
+import { Color, FlexboxLayout, GestureEventData } from "tns-core-modules";
 
 @Component({
   selector: 'ns-detalle',
@@ -33,6 +33,10 @@ export class DetalleComponent implements OnInit {
 
   onItemTap(x: any): void {
       console.dir(x);
+  }
+
+  goBack(): void {
+    this.routerExtensions.back();
   }
 
   onPull(e: { object: any; }) {

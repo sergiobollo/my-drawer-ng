@@ -3,7 +3,7 @@
 </ActionBar>
 
 <StackLayout class="page__content">
-        <Button text="Volver a Search" class="my-button" [nsRouterLink]="['/search']" pageTransition="slide" clearHistory="true"></Button>
+  <Button class="btn btn-primary" text="Volver a Search" (tap)="goBack()"></Button>
     <Label class="h3" text=" Presione hacia abajo para usar “pull to refresh” y ver detalles"></Label>
    
     <PullToRefresh (refresh)="onPull($event)">
