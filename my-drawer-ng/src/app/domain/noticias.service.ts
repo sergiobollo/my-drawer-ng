@@ -5,7 +5,7 @@ const sqlite = require("nativescript-sqlite");
 
 @Injectable()
 export class NoticiasService {
-  api: string = "https://bc9e54eea69b.ngrok.io";
+  api: string = "https://972c0c08cda0.ngrok.io";
   database: Couchbase;
 
   constructor() {
@@ -85,9 +85,9 @@ export class NoticiasService {
   }
 
   ObtenerFavoritosDb() {
-    this.getDb((db) => {
+    /*this.getDb((db) => {
         db.execSQL("SELECT * FROM favoritos");
-    }, () => console.log("Error on AgregarFavoritosDb"));
+    }, () => console.log("Error on AgregarFavoritosDb"));*/
     return getJSON(this.api + "/favs");
 }
 
