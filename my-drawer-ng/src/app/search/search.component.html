@@ -23,7 +23,7 @@
     <Button text="Ir a favoritos" class="my-button" [nsRouterLink]="['favoritos']" pageTransition="slide" clearHistory="true"></Button>
     
     <SearchForm (search)="buscarAhora($event)" [inicial]="'futbol'"></SearchForm>
-    
+            <Label class="h3 text-center" text="(Realiza una busqueda para actualizar el listado)"></Label>
     <PullToRefresh (refresh)="onPull($event)">
         <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap(x)"
         style="height:1250px">

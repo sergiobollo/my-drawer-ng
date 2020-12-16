@@ -15,6 +15,7 @@ export interface NoticiasState {
     items: Noticia[];
     sugerida: Noticia;
     leerAhora: string;
+    listadoLeerAhora: Array<string>;
 }
 
 export function intializeNoticiasState() {
@@ -22,6 +23,7 @@ export function intializeNoticiasState() {
     items: [],
     sugerida: null,
     leerAhora: null,
+    listadoLeerAhora: [],
   };
 }
 
@@ -31,6 +33,8 @@ export enum NoticiasActionTypes {
   NUEVA_NOTICIA = "[Noticias] Nueva",
   SUGERIR_NOTICIA = "[Noticias] Sugerir",
   LEER_AHORA =  "[Noticias] Leer",
+  LISTADO_LEER = "[Noticias] Listado",
+  AGREGAR_LECTURA = "[Noticias] Agregar",
 }
 
 // tslint:disable-next-line:max-classes-per-file
@@ -56,7 +60,17 @@ export class LeerAction implements Action {
   constructor(public noticia: string) {}
 }
 
-export type NoticiasViajesActions = NuevaNoticiaAction | InitMyDataAction | LeerAction;
+export class ListadoLeerAction implements Action {
+  type = NoticiasActionTypes.LISTADO_LEER;
+  constructor(public listado: Array<string>) {}
+}
+
+export class AgregarLecturaAction implements Action {
+  type = NoticiasActionTypes.AGREGAR_LECTURA;
+  constructor(public noticia: string) {}
+}
+
+export type NoticiasViajesActions = NuevaNoticiaAction | InitMyDataAction | LeerAction | ListadoLeerAction | AgregarLecturaAction;
 
 // REDUCERS
 export function reducersNoticias(
@@ -91,6 +105,23 @@ export function reducersNoticias(
           leerAhora: (action as LeerAction).noticia
         };
     }
+
+    case NoticiasActionTypes.LISTADO_LEER: {
+      const listado: Array<string> = (action as ListadoLeerAction).listado;
+
+      return {
+          ...state,
+          listadoLeerAhora: listado.map((t) => t)
+        };
+    }
+
+    case NoticiasActionTypes.AGREGAR_LECTURA: {
+      return {
+          ...state,
+          listadoLeerAhora: [...state.listadoLeerAhora, (action as AgregarLecturaAction).noticia ]
+        };
+    }
+
   }
 
   return state;

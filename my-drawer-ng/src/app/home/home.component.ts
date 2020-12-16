@@ -2,14 +2,17 @@ import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Application } from "@nativescript/core";
 import { isAndroid, isIOS } from "tns-core-modules";
+import { Store } from "@ngrx/store";
+import { AppState } from "../app.module";
 
 @Component({
     selector: "Home",
     templateUrl: "./home.component.html"
 })
 export class HomeComponent implements OnInit {
+    listadoLeerAhora: Array<string> = [];
 
-    constructor() {
+    constructor(private store: Store<AppState>) {
         // Use the component constructor to inject providers.
     }
 
@@ -23,6 +26,15 @@ export class HomeComponent implements OnInit {
         else {
             console.log("Estas navegando en WindowsPhone");
         }
+
+        this.store.select((state) => state.noticias.listadoLeerAhora)
+        .subscribe((data) => {
+            const f = data;
+            if (f != null) {
+                this.listadoLeerAhora = f;
+            }
+        });
+
     }
 
     onDrawerButtonTap(): void {

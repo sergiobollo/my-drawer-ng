@@ -3,7 +3,7 @@ import { NoticiasService } from '~/app/domain/noticias.service';
 import * as Toast from "nativescript-toasts";
 import { Store } from '@ngrx/store';
 import { AppState } from '~/app/app.module';
-import { Noticia, LeerAction } from '~/app/domain/noticias-state.model';
+import { AgregarLecturaAction, LeerAction } from '~/app/domain/noticias-state.model';
 
 @Component({
   selector: 'ns-favoritos',
@@ -37,6 +37,7 @@ export class FavoritosComponent implements OnInit {
 
   onItemTap(args: { view: { bindingContext: string; }; }): void {
     this.store.dispatch(new LeerAction(args.view.bindingContext));
+    this.store.dispatch(new AgregarLecturaAction(args.view.bindingContext));
 }
 
 }

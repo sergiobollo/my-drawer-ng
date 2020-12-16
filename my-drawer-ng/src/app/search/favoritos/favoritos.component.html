@@ -2,11 +2,20 @@
     <Label text="Favoritos"></Label>
 </ActionBar>
 
+
+
 <StackLayout class="page__content">
-        <Label class="h3 text-center" text="Lectura actual:"></Label>
+      
+        <Label class="h2 text-center" text="Lectura actual:"></Label>
         <Label class="h3 text-center" [text]="ninguna" *ngIf="this.leerAhora == ''"></Label>
-        <Label class="h3 text-center" [text]="this.leerAhora"></Label>
+       <Label class="h3 text-center" [text]="this.leerAhora"></Label>
+        <Label class="h3 text-center" text="(Cambia la lectura actual haciendo clic en un favorito)"></Label>
+          <Button text="Ir al listado de lecturas actuales" class="my-button" [nsRouterLink]="['/home']" pageTransition="slide" clearHistory="true"></Button>
+    
         <Label class="h2 text-center" text="Listado de favoritos"></Label>
+        <Label class="h3 text-center" text="(Agrega noticias desde el listado de busqueda)"></Label>
+
+
             <ListView class="list-group" [items]="this.favoritosDb" style="height:1250px" (itemTap)="onItemTap($event)">
         <ng-template let-x="item">
             <FlexboxLayout flexDirection="row" class="list-group-item">
@@ -17,7 +26,5 @@
             </FlexboxLayout>
         </ng-template>
     </ListView>  
-
-    <Button text="Volver a Search" class="my-button" [nsRouterLink]="['/search']" pageTransition="slide" clearHistory="true"></Button>
-    
+       <Button text="Volver a Search" class="my-button" [nsRouterLink]="['/search']" pageTransition="slide" clearHistory="true"></Button>
 </StackLayout>
