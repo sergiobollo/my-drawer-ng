@@ -1,0 +1,23 @@
+<ActionBar>
+    <Label text="Favoritos"></Label>
+</ActionBar>
+
+<StackLayout class="page__content">
+        <Label class="h3 text-center" text="Lectura actual:"></Label>
+        <Label class="h3 text-center" [text]="ninguna" *ngIf="this.leerAhora == ''"></Label>
+        <Label class="h3 text-center" [text]="this.leerAhora"></Label>
+        <Label class="h2 text-center" text="Listado de favoritos"></Label>
+            <ListView class="list-group" [items]="this.favoritosDb" style="height:1250px" (itemTap)="onItemTap($event)">
+        <ng-template let-x="item">
+            <FlexboxLayout flexDirection="row" class="list-group-item">
+                <Label [text]="x" class="list-group-item-heading"
+                    verticalAlignment="center" style="width: 60%"></Label>
+                <Label text="(Haz clic para leer!)" class="list-group-item-heading"
+                    verticalAlignment="center" style="width: 60%"></Label>
+            </FlexboxLayout>
+        </ng-template>
+    </ListView>  
+
+    <Button text="Volver a Search" class="my-button" [nsRouterLink]="['/search']" pageTransition="slide" clearHistory="true"></Button>
+    
+</StackLayout>

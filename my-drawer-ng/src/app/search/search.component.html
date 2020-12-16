@@ -1,0 +1,42 @@
+<ActionBar>
+    <!-- 
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <!-- 
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+    <ActionItem icon="res://menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label text="Search"></Label>
+</ActionBar>
+
+<StackLayout class="page__content" #layout>
+
+    <Label class="page__content-icon fas" text="&#xf002;"></Label>
+
+    <!--<Label class="page__content-placeholder" *ngFor="let s of this.noticias.buscar()" [text]="s"></Label>-->
+    <Button text="Ir a favoritos" class="my-button" [nsRouterLink]="['favoritos']" pageTransition="slide" clearHistory="true"></Button>
+    
+    <SearchForm (search)="buscarAhora($event)" [inicial]="'futbol'"></SearchForm>
+    
+    <PullToRefresh (refresh)="onPull($event)">
+        <ListView class="list-group" [items]="this.resultados" (itemTap)="onItemTap(x)"
+        style="height:1250px">
+            <ng-template let-x="item">
+                <FlexboxLayout flexDirection="row" class="list-group-item">
+                    <Image src="res://icon" class="thumb img-circle"></Image>
+                    <Label [text]="x" class="list-group-item-heading" verticalAlignment="center" style="width: 30%" (tap)="onTextTap($event)"></Label>
+                    <Label class="far" text="&#xf005;" style="width: 10%; color: gray;" verticalAlignment="center" (tap)="onStarTap(x)" *ngIf="this.favoritos.indexOf(x) < 0"></Label>
+                    <Label class="fas" text="&#xf005;" style="width: 10%; color: #ffcc00;" verticalAlignment="center" (tap)="onStarTap(x)" *ngIf="this.favoritos.indexOf(x) > -1"></Label>
+                    <Button text="Detalle" (tap)="onTap('detalle')" (longPress)="onLongPress($event)"></Button>
+               </FlexboxLayout>
+            </ng-template>
+        </ListView>  
+    </PullToRefresh>
+ 
+</StackLayout>
