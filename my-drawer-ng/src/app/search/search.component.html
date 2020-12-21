@@ -29,11 +29,11 @@
         style="height:1250px">
             <ng-template let-x="item">
                 <FlexboxLayout flexDirection="row" class="list-group-item">
-                    <Image src="res://icon" class="thumb img-circle"></Image>
+                    <Image src="res://icon" class="thumb img-circle"  (longPress)="onLongPress(x)"></Image>
                     <Label [text]="x" class="list-group-item-heading" verticalAlignment="center" style="width: 30%" (tap)="onTextTap($event)"></Label>
                     <Label class="far" text="&#xf005;" style="width: 10%; color: gray;" verticalAlignment="center" (tap)="onStarTap(x)" *ngIf="this.favoritos.indexOf(x) < 0"></Label>
                     <Label class="fas" text="&#xf005;" style="width: 10%; color: #ffcc00;" verticalAlignment="center" (tap)="onStarTap(x)" *ngIf="this.favoritos.indexOf(x) > -1"></Label>
-                    <Button text="Detalle" (tap)="onTap('detalle')" (longPress)="onLongPress($event)"></Button>
+                    <Button text="Detalle" (tap)="onTap('detalle')" (longPress)="onLongButtonPress($event)"></Button>
                </FlexboxLayout>
             </ng-template>
         </ListView>  

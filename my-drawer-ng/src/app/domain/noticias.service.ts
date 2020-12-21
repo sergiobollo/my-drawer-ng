@@ -5,7 +5,7 @@ const sqlite = require("nativescript-sqlite");
 
 @Injectable()
 export class NoticiasService {
-  api: string = "https://6ef442d8e526.ngrok.io";
+  api: string = "https://f3f13e27b09f.ngrok.io";
   database: Couchbase;
 
   constructor() {

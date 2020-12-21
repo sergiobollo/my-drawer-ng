@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890915279978",
+    "project_id": "coursera-sabollo",
+    "storage_bucket": "coursera-sabollo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890915279978:android:4ec8d8614ea3d163e56613",
+        "android_client_info": {
+          "package_name": "org.nativescript.mydrawerng"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890915279978-sqi1rjjlp8fks8qhiebj2nkoassjluu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjpndekKxfzzOa0Un5tqjCAPDQRxOrptU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890915279978-sqi1rjjlp8fks8qhiebj2nkoassjluu0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

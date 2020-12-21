@@ -10,6 +10,7 @@ import * as Toast from "nativescript-toasts";
 import { Store } from "@ngrx/store";
 import { AppState } from "../app.module";
 import { NuevaNoticiaAction, Noticia } from "../domain/noticias-state.model";
+import * as SocialShare from "@nativescript/social-share";
 
 
 @Component({
@@ -80,8 +81,11 @@ export class SearchComponent implements OnInit {
             Toast.show({text: "Error en la búsqueda", duration: Toast.DURATION.SHORT});
         });
     } 
-
-    onLongPress(args: GestureEventData) {
+    onLongPress(s): void {
+        console.log(s);
+        SocialShare.shareText(s, "Asunto: compartido desde el curso!");
+    }
+    onLongButtonPress(args: GestureEventData) {
         const grid = <Button>args.object;
         grid.animate({
             backgroundColor: new Color("blue"),
