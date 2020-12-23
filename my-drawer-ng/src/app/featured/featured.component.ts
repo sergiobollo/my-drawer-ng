@@ -3,12 +3,17 @@ import { compose } from "nativescript-email";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { Application } from "@nativescript/core";
 import { GestureEventData, GridLayout } from "tns-core-modules";
+import { device, screen } from "tns-core-modules/platform";
+import { connectionType, getConnectionType, startMonitoring, stopMonitoring } from "tns-core-modules/connectivity";
+
 
 @Component({
     selector: "Featured",
     templateUrl: "./featured.component.html"
 })
 export class FeaturedComponent implements OnInit {
+
+    monitoreando: boolean = false; // una variable para saber si estamos monitoreando o no
 
     constructor() {
         // Use the component constructor to inject providers.
@@ -58,6 +63,76 @@ export class FeaturedComponent implements OnInit {
                   mimeType: "image/png"
             }]
         }).then(() => console.log("Enviador de mail cerrado"), (err) => console.log("Error: " + err));
+    }
+
+    onDatosPlataforma(): void {
+        console.log("modelo", device.model);
+        console.log("tipo dispositivo", device.deviceType);
+        console.log("Sistema operativo", device.os);
+        console.log("version sist operativo", device.osVersion);
+        console.log("Version sdk", device.sdkVersion);
+        console.log("lenguaje", device.language);
+        console.log("fabricante", device.manufacturer);
+        console.log("codigo único de dispositivo", device.uuid);
+
+        console.log("altura en pixels normalizados", screen.mainScreen.heightDIPs); // DIP (Device Independent Pixel) también conocido como densidad de píxeles independientes. Un píxel virtual que aparece aproximadamente del mismo tamaño en una variedad de densidades de pantalla.
+        console.log("altura pixels", screen.mainScreen.heightPixels);
+        console.log("escala pantalla", screen.mainScreen.scale);
+        console.log("ancho pixels normalizados", screen.mainScreen.widthDIPs);
+        console.log("ancho pixels", screen.mainScreen.widthPixels);
+    }
+
+    
+    onMonitoreoDatos(): void {
+        const myConnectionType = getConnectionType();
+
+        switch (myConnectionType) {
+            case connectionType.none:
+                console.log("Sin Conexion");
+                break;
+            case connectionType.wifi:
+                console.log("WiFi");
+                break;
+            case connectionType.mobile:
+                console.log("Mobile");
+                break;
+            case connectionType.ethernet:
+                console.log("Ethernet"); // es decir cableada
+                break;
+            case connectionType.bluetooth:
+                 console.log("Bluetooth");
+                 break;
+            default:
+                break;
+        }
+
+        this.monitoreando = !this.monitoreando;
+
+        if (this.monitoreando) {
+            startMonitoring((newConnectionType) => {
+                switch (newConnectionType) {
+                    case connectionType.none:
+                        console.log("Cambió a sin conexión.");
+                        break;
+                    case connectionType.wifi:
+                        console.log("Cambió a  WiFi.");
+                        break;
+                    case connectionType.mobile:
+                        console.log("Cambió a  mobile.");
+                        break;
+                    case connectionType.ethernet:
+                        console.log("Cambió a  ethernet.");
+                        break;
+                    case connectionType.bluetooth:
+                        console.log("Cambió a bluetooth.");
+                        break;
+                    default:
+                        break;
+                }
+            });
+        } else {
+            stopMonitoring();
+        }
     }
 
 }

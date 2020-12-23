@@ -15,13 +15,16 @@
     <Label text="Featured"></Label>
 </ActionBar>
 
-<GridLayout class="page__content">
-    <Label class="page__content-icon fas" text="&#xf005;"></Label>
-    <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+<StackLayout class="page page-content">
+    <Label class="page-icon fa" text="&#xf005;"></Label>
+
+    <Button text="Datos Plataforma" (tap)="onDatosPlataforma()"></Button>
+
+    <Button text="Monitoreo Datos" (tap)="onMonitoreoDatos()"></Button>
 
     <GridLayout class="bg-primary p-15 m-15" width="200" height="200"
        (longPress)="onLongPress($event)">
        <Image class="img-rounded" src="res://icon" stretch="none"></Image>
    </GridLayout>
     
-</GridLayout>
+</StackLayout>

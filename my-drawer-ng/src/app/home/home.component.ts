@@ -4,9 +4,10 @@ import { Application } from "@nativescript/core";
 import { isAndroid, isIOS } from "tns-core-modules";
 import { Store } from "@ngrx/store";
 import { AppState } from "../app.module";
-import * as camera from "@nativescript/camera";
-import * as SocialShare from "@nativescript/social-share";
+import * as SocialShare from "nativescript-social-share";
 import {ImageSource} from "tns-core-modules/image-source";
+import { Image } from "tns-core-modules/ui/image";
+import * as camera from "nativescript-camera";
 
 @Component({
     selector: "Home",
@@ -46,13 +47,18 @@ export class HomeComponent implements OnInit {
     }
 
     onButtonTap(): void {
+        var isAvailable = camera.isAvailable();
+        console.log(isAvailable);
         camera.requestPermissions().then(
             function success() {
+                console.log("Permiso de camara aceptado por el usuario");
                 const options = { width: 300, height: 300, keepAspectRatio: false, saveToGallery: true };
                 camera.takePicture(options).
                     then((imageAsset) => {
                         console.log("Tamaño: " + imageAsset.options.width + "x" + imageAsset.options.height);
                         console.log("keepAspectRatio: " + imageAsset.options.keepAspectRatio);
+                        var image = new Image();
+                        image.src = imageAsset;
                         console.log("Foto guardada!");
                         ImageSource.fromAsset(imageAsset)
                             .then((imageSource) => {

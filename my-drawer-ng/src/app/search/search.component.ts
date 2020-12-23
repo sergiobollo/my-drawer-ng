@@ -10,7 +10,7 @@ import * as Toast from "nativescript-toasts";
 import { Store } from "@ngrx/store";
 import { AppState } from "../app.module";
 import { NuevaNoticiaAction, Noticia } from "../domain/noticias-state.model";
-import * as SocialShare from "@nativescript/social-share";
+import * as SocialShare from "nativescript-social-share";
 
 
 @Component({
