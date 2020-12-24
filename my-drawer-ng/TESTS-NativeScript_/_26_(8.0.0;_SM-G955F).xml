@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<testsuite name="NativeScript / 26 (8.0.0; SM-G955F)" package="" timestamp="2020-12-23T23:25:36" id="0" hostname="LAPTOP-URTRREB4" tests="2" errors="0" failures="0" time="0.014">
+  <properties>
+    <property name="browser.fullName" value="NativeScript / 26 (8.0.0; SM-G955F)"/>
+  </properties>
+  <testcase name="reducersNoticias should reduce new item added" time="0.012" classname="NativeScript_/_26_(8_0_0;_SM-G955F).reducersNoticias"/>
+  <testcase name="reducersNoticias should reduce init data" time="0.002" classname="NativeScript_/_26_(8_0_0;_SM-G955F).reducersNoticias"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>

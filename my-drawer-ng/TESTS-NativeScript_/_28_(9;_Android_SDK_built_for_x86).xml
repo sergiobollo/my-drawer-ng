@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<testsuite name="NativeScript / 28 (9; Android SDK built for x86)" package="" timestamp="2020-12-23T23:26:25" id="0" hostname="LAPTOP-URTRREB4" tests="2" errors="0" failures="0" time="0.097">
+  <properties>
+    <property name="browser.fullName" value="NativeScript / 28 (9; Android SDK built for x86)"/>
+  </properties>
+  <testcase name="reducersNoticias should reduce init data" time="0.094" classname="NativeScript_/_28_(9;_Android_SDK_built_for_x86).reducersNoticias"/>
+  <testcase name="reducersNoticias should reduce new item added" time="0.003" classname="NativeScript_/_28_(9;_Android_SDK_built_for_x86).reducersNoticias"/>
+  <system-out>
+    <![CDATA[NativeScript / 26 (8.0.0; SM-G955F) ERROR
+  DisconnectedClient disconnected from CONNECTED state (transport error)
+
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
